@@ -1,0 +1,108 @@
+You are a senior Machine Learning engineer, computer vision researcher, and Python architect.
+
+Your task is to design and implement a COMPLETE, production-ready Face Recognition system using Python, deep learning, and a Gradio-based web UI.
+
+────────────────────────────────────
+CORE REQUIREMENTS
+────────────────────────────────────
+
+1. LANGUAGE & STACK
+- Programming language: Python 3.10+
+- ML Framework: PyTorch (preferred) or TensorFlow if justified
+- Face detection: MTCNN or RetinaFace
+- Face embedding model: FaceNet / ArcFace / InsightFace (choose best and explain why)
+- Similarity metric: Cosine similarity or Euclidean distance
+- UI Framework: Gradio Web UI
+- Optional acceleration: CUDA (GPU) with automatic CPU fallback
+
+2. SYSTEM CAPABILITIES
+- Upload image(s) from Gradio UI
+- Detect face(s) in image
+- Align and preprocess faces
+- Generate face embeddings
+- Store embeddings in a local database (SQLite / NumPy / FAISS)
+- Compare faces and return:
+  - Match / No Match
+  - Confidence score (%)
+  - Top-K nearest matches (if database exists)
+
+3. DATA HANDLING
+- Support multiple identities
+- Allow:
+  - Register new face (name + image)
+  - Delete identity
+  - Update identity
+- Persist embeddings on disk
+- Prevent duplicate identity conflicts
+
+4. GRADIO WEB UI
+- Clean, modern layout
+- Tabs:
+  - "Register Face"
+  - "Recognize Face"
+  - "Database Viewer"
+- Live image preview
+- Display:
+  - Bounding boxes
+  - Person name
+  - Confidence score
+- Error handling for:
+  - No face detected
+  - Multiple faces
+  - Low confidence matches
+
+5. MODEL PIPELINE
+- Step-by-step pipeline:
+  1. Image upload
+  2. Face detection
+  3. Face alignment
+  4. Normalization
+  5. Embedding extraction
+  6. Similarity comparison
+- Clearly separate logic into modules:
+  - detector.py
+  - encoder.py
+  - database.py
+  - recognizer.py
+  - ui.py
+  - main.py
+
+6. PERFORMANCE & QUALITY
+- Use batch processing where possible
+- Cache model in memory
+- Add logging
+- Explain how to improve accuracy
+- Explain how to scale to thousands of faces
+
+────────────────────────────────────
+SECURITY & ETHICS
+────────────────────────────────────
+- Clearly warn about ethical use
+- Avoid silent background recognition
+- No hidden surveillance features
+
+────────────────────────────────────
+DELIVERABLES
+────────────────────────────────────
+1. Full Python code (well-commented)
+2. Project folder structure
+3. requirements.txt
+4. Clear setup & run instructions
+5. Explanation of key ML choices
+6. Notes on:
+   - Accuracy tuning
+   - Threshold selection
+   - False positives vs false negatives
+
+────────────────────────────────────
+BONUS (IF POSSIBLE)
+────────────────────────────────────
+- FAISS integration for fast search
+- REST API (FastAPI) alongside Gradio
+- Webcam support
+- Model fine-tuning guide
+- Anti-spoofing note (liveness detection)
+
+Build this system as if it will be reviewed by experienced ML engineers. 
+Avoid toy examples. 
+Write clean, modular, scalable code.
